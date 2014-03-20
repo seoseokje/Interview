@@ -8,11 +8,10 @@ public class OrderedString {
 			return;
 		}
 		for (int i = currentOrder; i < 26; i++) {
-			for (int j = 0; j < 2; j++) {
 				char a = (char)((int)'a' + i);
-				if (j % 2 == 0) a = Character.toUpperCase(a);
-				printAllOrderedString(b + a, i, depth - 1);
-			}
+				printAllOrderedString(new StringBuilder(b).append(a).toString(), i, depth - 1);
+				a = Character.toUpperCase(a);
+				printAllOrderedString(new StringBuilder(b).append(a).toString(), i, depth - 1);
 		}		
 	}
 
